@@ -1,0 +1,318 @@
+html {
+  scroll-behavior: smooth; /* atur perilaku scroll */
+}
+
+.navbar {
+  position: fixed; /* atur posisi navbar */
+  top: 0; /* atur posisi vertikal navbar */
+  left: 0; /* atur posisi horizontal navbar */
+  z-index: 1000; /* atur urutan tumpukan navbar */
+  background-color: #fdfbf7; /* atur warna latar belakang navbar */
+  color: #2c221e; /* atur warna teks navbar */
+  width: 100%; /* atur lebar navbar */
+  box-sizing: border-box; /* atur box model */
+}
+
+.logo {
+  flex: 1; /* atur flex untuk elemen logo */
+  display: flex; /* aktifkan flexbox */
+  align-items: center; /* atur posisi vertikal elemen */
+  gap: 8px; /* atur jarak antar elemen */
+  color: #2c221e; /* atur warna teks elemen logo */
+  text-decoration: none; /* atur dekorasi teks elemen logo */
+  font-size: 1.5rem; /* atur ukuran teks elemen logo */
+  font-weight: bold; /* atur ketebalan teks elemen logo */
+  font-family: sans-serif; /* atur font teks elemen logo */
+}
+
+.logo img {
+  height: 60px; /* atur tinggi gambar logo */
+}
+
+.nav-links {
+  display: flex; /* aktifkan flexbox */
+  justify-content: center; /* atur posisi horizontal elemen */
+  gap: 24px; /* atur jarak antar elemen */
+  flex: 1; /* atur flex untuk elemen nav-links */
+}
+
+.nav-links a {
+  color: #2c221e; /* atur warna teks elemen nav-links */
+  text-decoration: none; /* atur dekorasi teks elemen nav-links */
+  font-weight: bold; /* atur ketebalan teks elemen nav-links */
+  font-family: sans-serif; /* atur font teks elemen nav-links */
+  transition:
+    color 0.3s ease,
+    text-decoration-color 0.3s ease; /* atur transisi efek hover */
+}
+
+.nav-links a:hover {
+  text-decoration: underline; /* atur dekorasi teks elemen nav-links saat hover */
+  color: #c87d55; /* atur warna teks elemen nav-links saat hover */
+  text-underline-offset: 4px; /* atur posisi garis bawah elemen nav-links saat hover */
+  text-decoration-thickness: 2px; /* atur ketebalan garis bawah elemen nav-links saat hover */
+}
+
+.cart {
+  flex: 1; /* atur flex untuk elemen cart */
+  display: flex; /* aktifkan flexbox */
+  justify-content: flex-end; /* atur posisi horizontal elemen */
+  gap: 16px; /* atur jarak antar elemen */
+}
+
+.cart a {
+  color: #2c221e; /* atur warna teks elemen cart */
+  text-decoration: none; /* atur dekorasi teks elemen cart */
+  font-size: 1.2rem; /* atur ukuran teks elemen cart */
+  font-family: sans-serif;
+  transition:
+    color 0.3s ease,
+    text-decoration-color 0.3s ease; /* atur transisi efek hover */
+}
+
+.cart a:hover {
+  color: #c87d55; /* atur warna teks elemen cart saat hover */
+}
+
+.hero {
+  display: flex; /* aktifkan flexbox */
+  flex-direction: column; /* atur arah elemen */
+  justify-content: center; /* atur posisi vertikal elemen */
+  align-items: center; /* atur posisi horizontal elemen */
+  text-align: center; /* atur posisi teks elemen */
+  padding: 4rem 2rem; /* atur jarak dalam elemen */
+  padding-top: 160px; /* atur jarak atas elemen untuk menghindari navbar */
+  background-color: #fdfbf7; /* atur warna latar belakang elemen */
+  color: #2c221e; /* atur warna teks elemen */
+  box-sizing: border-box; /* atur box model */
+}
+
+h1 {
+  font-size: 3rem; /* atur ukuran teks elemen h1 */
+  margin-bottom: 1rem; /* atur jarak bawah elemen h1 */
+  font-family: sans-serif; /* atur font teks elemen h1 */
+}
+
+p {
+  font-size: 1.2rem; /* atur ukuran teks elemen p */
+  margin-bottom: 2rem; /* atur jarak bawah elemen p */
+  font-family: sans-serif; /* atur font teks elemen p */
+}
+
+.btn {
+  display: inline-block; /* atur elemen menjadi inline-block */
+  padding: 1rem 2rem; /* atur jarak dalam elemen */
+  background-color: #c87d55; /* atur warna latar belakang elemen */
+  color: #fdfbf7; /* atur warna teks elemen */
+  text-decoration: none; /* atur dekorasi teks elemen */
+  font-size: 1.2rem; /* atur ukuran teks elemen */
+  font-weight: bold; /* atur ketebalan teks elemen */
+  font-family: sans-serif; /* atur font teks elemen */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* atur transisi efek hover */
+  border-radius: 8px; /* atur radius border elemen */
+}
+
+.btn:hover {
+  background-color: #2c221e; /* atur warna latar belakang elemen saat hover */
+  color: #c87d55; /* atur warna teks elemen saat hover */
+}
+
+.about {
+  display: flex; /* aktifkan flexbox */
+  justify-content: center; /* atur jarak antar elemen */
+  align-items: stretch; /* atur posisi vertikal elemen */
+  padding: 4rem 2rem; /* atur jarak dalam elemen */
+  background-color: #fdfbf7; /* atur warna latar belakang elemen */
+  color: #2c221e; /* atur warna teks elemen */
+  box-sizing: border-box; /* atur box model */
+}
+
+.about-img {
+  width: 300px; /* atur lebar elemen about-img */
+  object-fit: cover; /* atur ukuran gambar elemen about-img */
+  margin-right: 2rem; /* atur jarak kanan elemen about-img */
+  border-radius: 8px; /* atur radius border elemen about-img */
+}
+.about-content {
+  flex: 1; /* atur flex untuk elemen about-content */
+  max-width: 600px; /* atur lebar maksimum elemen about-content */
+}
+
+.about-content p {
+  font-size: 1.2rem; /* atur ukuran teks elemen about-content p */
+  margin-bottom: 1rem; /* atur jarak bawah elemen about-content p */
+  font-family: sans-serif; /* atur font teks elemen about-content p */
+}
+
+.navbar-content {
+  display: flex; /* aktifkan flexbox */
+  justify-content: space-between; /* atur jarak antar elemen */
+  align-items: center; /* atur posisi vertikal elemen */
+  max-width: 1600px; /* atur lebar maksimum navbar-content */
+  margin: 0 auto; /* atur posisi navbar-content di tengah */
+  padding: 2rem; /* atur jarak dalam navbar-content */
+  color: #2c221e; /* atur warna teks navbar-content */
+}
+
+.menu {
+  padding: 4rem 2rem; /* atur padding menu */
+  background-color: #fdfbf7; /* atur warna latar belakang menu */
+  text-align: center; /* atur posisi teks menu */
+}
+
+.menu-grid {
+  display: grid; /* aktifkan grid layout */
+  grid-template-columns: repeat(2, 1fr); /* atur kolom grid */
+  gap: 2rem; /* atur jarak antar elemen grid */
+  max-width: 1200px; /* atur lebar maksimum grid */
+  margin: 0 auto; /* atur posisi grid di tengah */
+}
+
+.menu-item {
+  background-color: white; /* atur warna latar belakang menu-item */
+  padding: 1.5rem; /* atur padding menu-item */
+  border-radius: 12px; /* atur radius border menu-item */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* atur bayangan menu-item */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* atur transisi efek hover */
+}
+
+.menu-item:hover {
+  transform: translateY(-5px); /* atur posisi menu-item saat hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* atur bayangan menu-item saat hover */
+}
+
+.menu-item img {
+  width: 100%; /* atur lebar gambar menu-item */
+  height: 300px; /* atur tinggi gambar menu-item */
+  object-fit: cover; /* atur ukuran gambar menu-item */
+  border-radius: 8px; /* atur radius border gambar menu-item */
+  margin-bottom: 1rem; /* atur jarak bawah gambar menu-item */
+}
+
+.price {
+  font-size: 1.2rem; /* atur ukuran teks price */
+  font-weight: bold; /* atur ketebalan teks price */
+  color: #c87d55; /* atur warna teks price */
+  margin-bottom: 0.5rem; /* atur jarak bawah teks price */
+}
+
+.footer {
+  background-color: #2c221e; /* atur warna latar belakang footer */
+  color: #fdfbf7; /* atur warna teks footer */
+  padding: 2rem; /* atur padding footer */
+  text-align: center; /* atur posisi teks footer */
+}
+
+.footer-content {
+  display: flex; /* aktifkan flexbox */
+  justify-content: space-between; /* atur jarak antar elemen */
+  align-items: center; /* atur posisi vertikal elemen */
+  max-width: 1200px; /* atur lebar maksimum footer-content */
+  margin: 0 auto; /* atur posisi footer-content di tengah */
+}
+
+.social-icons {
+  display: flex; /* aktifkan flexbox */
+  gap: 16px; /* atur jarak antar elemen */
+}
+
+.social-icons a {
+  color: #fdfbf7; /* atur warna ikon social media */
+  font-size: 24px; /* atur ukuran ikon social media */
+  transition: color 0.3s ease; /* atur transisi efek hover */
+  text-decoration: none; /* atur dekorasi teks ikon social media */
+}
+
+.social-icons a:hover {
+  color: #c87d55; /* atur warna ikon social media saat hover */
+}
+
+.footer-copy {
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* atur garis atas footer-copy */
+  margin-top: 1rem; /* atur jarak atas footer-copy */
+  padding-top: 1rem; /* atur padding atas footer-copy */
+  font-size: 0.9rem; /* atur ukuran teks footer-copy */
+}
+
+.footer-info p {
+  margin: 0.5rem 0; /* atur jarak atas dan bawah teks footer-info */
+  font-size: 1rem; /* atur ukuran teks footer-info */
+}
+
+.hero,
+.about,
+.menu,
+.footer {
+  scroll-margin-top: 80px; /* atur jarak scroll untuk setiap section */
+}
+
+@media (max-width: 768px) {
+  .navbar-content {
+    position: relative; /* atur posisi navbar-content */
+    flex-direction: column; /* atur arah elemen navbar-content */
+    align-items: flex-start; /* atur posisi vertikal elemen navbar-content */
+  }
+
+  .nav-links {
+    width: 100%; /* atur lebar elemen nav-links */
+    flex-direction: row; /* atur arah elemen nav-links */
+    flex-wrap: wrap; /* aktifkan wrapping elemen nav-links */
+    justify-content: center;
+    gap: 16px 20px; /* atur jarak antar elemen nav-links */
+    margin-top: 1rem; /* atur jarak atas elemen nav-links */
+  }
+
+  .cart {
+    position: absolute; /* atur posisi elemen cart */
+    top: 3.5rem; /* atur jarak atas elemen cart */
+    right: 2rem; /* atur jarak kanan elemen cart */
+    flex: none;
+  }
+
+  .about {
+    padding: 2rem 1.5rem; /* atur padding elemen about */
+    flex-direction: column; /* atur arah elemen about */
+    text-align: center; /* atur posisi teks elemen about */
+  }
+
+  .about-img {
+    margin-right: 0; /* atur jarak kanan elemen about-img */
+    margin-bottom: 2rem; /* atur jarak bawah elemen about-img */
+  }
+
+  .menu {
+    padding: 2rem 1.5rem; /* atur padding elemen menu */
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr; /* atur kolom grid menu-grid */
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* atur ukuran teks elemen h1 pada hero */
+  }
+
+  .hero {
+    padding-top: 150px; /* atur jarak atas elemen hero untuk menghindari navbar */
+  }
+
+  .hero,
+  .about,
+  .menu,
+  .footer {
+    scroll-margin-top: 100px; /* atur jarak scroll untuk setiap section */
+  }
+
+  .footer-content {
+    flex-direction: column; /* atur arah elemen footer-content */
+    gap: 1.5rem; /* atur jarak antar elemen footer-content */
+  }
+
+  .social-icons {
+    justify-content: center; /* atur posisi elemen social-icons */
+  }
+}
