@@ -29,6 +29,9 @@
           <a href="#"><i class="fas fa-shopping-cart"></i></a>
           <a href="#"><i class="fas fa-user"></i></a>
         </div>
+        <button class="hamburger" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </nav>
 
@@ -109,5 +112,22 @@
       </div>
       <p class="footer-copy">&copy; 2026 Kopi Senja. All rights reserved.</p>
     </footer>
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
+
+      document.addEventListener("click", function (event) {
+        let navLinks = document.querySelector(".nav-links");
+        let hamburger = document.querySelector(".hamburger");
+
+        let klikDalamMenu = navLinks.contains(event.target);
+        let klikDiHamburger = hamburger.contains(event.target);
+
+        if (!klikDalamMenu && !klikDiHamburger) {
+          navLinks.classList.remove("active");
+        }
+      });
+    </script>
   </body>
 </html>

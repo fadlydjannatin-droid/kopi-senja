@@ -250,27 +250,44 @@ p {
   scroll-margin-top: 80px; /* atur jarak scroll untuk setiap section */
 }
 
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2c221e;
+}
+
 @media (max-width: 768px) {
   .navbar-content {
     position: relative; /* atur posisi navbar-content */
-    flex-direction: column; /* atur arah elemen navbar-content */
-    align-items: flex-start; /* atur posisi vertikal elemen navbar-content */
+    flex-direction: row; /* atur arah elemen navbar-content */
+    justify-content: space-between;
+    align-items: center; /* atur posisi vertikal elemen navbar-content */
   }
 
   .nav-links {
+    display: none; /* sembunyikan elemen nav-links */
+    position: absolute; /* atur posisi elemen nav-links */
+    top: 100%; /* atur posisi vertikal elemen nav-links */
+    left: 0; /* atur posisi horizontal elemen nav-links */
     width: 100%; /* atur lebar elemen nav-links */
-    flex-direction: row; /* atur arah elemen nav-links */
-    flex-wrap: wrap; /* aktifkan wrapping elemen nav-links */
-    justify-content: center;
-    gap: 16px 20px; /* atur jarak antar elemen nav-links */
-    margin-top: 1rem; /* atur jarak atas elemen nav-links */
+    flex-direction: column; /* atur arah elemen nav-links */
+    align-items: center; /* atur posisi horizontal elemen nav-links */
+    gap: 16px; /* atur jarak antar elemen nav-links */
+    background-color: #fdfbf7; /* atur warna latar belakang elemen nav-links */
+    padding: 1.5rem 0; /* atur padding elemen nav-links */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* atur bayangan elemen nav-links */
+  }
+
+  .nav-links.active {
+    display: flex; /* tampilkan elemen nav-links saat aktif */
   }
 
   .cart {
-    position: absolute; /* atur posisi elemen cart */
-    top: 3.5rem; /* atur jarak atas elemen cart */
-    right: 2rem; /* atur jarak kanan elemen cart */
-    flex: none;
+    position: static; /* atur posisi elemen cart */
+    gap: 16px; /* atur jarak antar elemen cart */
   }
 
   .about {
@@ -314,5 +331,11 @@ p {
 
   .social-icons {
     justify-content: center; /* atur posisi elemen social-icons */
+  }
+
+  .hamburger {
+    order: 2; /* atur urutan elemen hamburger */
+    display: block;
+    margin-left: 16px; /* atur jarak kiri elemen hamburger */
   }
 }
