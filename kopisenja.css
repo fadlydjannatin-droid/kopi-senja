@@ -74,6 +74,29 @@ html {
   color: #c87d55; /* atur warna teks elemen cart saat hover */
 }
 
+.cart a {
+  position: relative; /* atur posisi elemen cart a */
+  padding: 4px; /* atur padding elemen cart a */
+}
+
+.cart-count {
+  position: absolute; /* atur posisi elemen cart-count */
+  top: -4px; /* atur posisi vertikal elemen cart-count */
+  right: -4px; /* atur posisi horizontal elemen cart-count */
+  background-color: #c87d55; /* atur warna latar belakang elemen cart-count */
+  color: #fdfbf7; /* atur warna teks elemen cart-count */
+  border-radius: 50%; /* atur radius border elemen cart-count */
+
+  font-size: 0.55rem; /* atur ukuran teks elemen cart-count */
+  font-weight: bold; /* atur ketebalan teks elemen cart-count */
+  width: 14px; /* atur lebar elemen cart-count */
+  height: 14px; /* atur tinggi elemen cart-count */
+  display: flex; /* atur arah elemen cart-count */
+  justify-content: center; /* atur posisi horizontal elemen cart-count */
+  align-items: center; /* atur posisi vertikal elemen cart-count */
+  line-height: 1; /* atur tinggi garis elemen cart-count */
+}
+
 .hero {
   display: flex; /* aktifkan flexbox */
   flex-direction: column; /* atur arah elemen */
@@ -337,5 +360,9 @@ p {
     order: 2; /* atur urutan elemen hamburger */
     display: block;
     margin-left: 16px; /* atur jarak kiri elemen hamburger */
+  }
+
+  .cart a:first-child {
+    margin-right: 6px; /* atur jarak kanan elemen cart a pertama */
   }
 }
