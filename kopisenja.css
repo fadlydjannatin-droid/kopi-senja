@@ -282,6 +282,45 @@ p {
   color: #2c221e;
 }
 
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2c221e;
+  font-size: 1.2rem;
+}
+
+body.dark .navbar,
+body.dark .hero,
+body.dark .about,
+body.dark .menu {
+  background-color: #1a1512; /* atur warna latar belakang saat mode gelap */
+  color: #fdfbf7; /* atur warna teks saat mode gelap */
+}
+
+body.dark .logo,
+body.dark .nav-links a,
+body.dark .cart a,
+body.dark .theme-toggle,
+body.dark .hamburger,
+body.dark .navbar-content {
+  color: #fdfbf7; /* atur warna teks saat mode gelap */
+}
+
+body.dark .nav-links {
+  background-color: #1a1512; /* atur warna latar belakang nav-links saat mode gelap */
+}
+
+body.dark .nav-links a:hover,
+body.dark .cart a:hover {
+  color: #c87d55; /* atur warna teks saat mode gelap saat hover */
+  text-decoration-color: #c87d55; /* atur warna garis bawah saat mode gelap saat hover */
+}
+
+body.dark .menu-item {
+  background-color: #2c221e; /* atur warna latar belakang menu-item saat mode gelap */
+}
+
 @media (max-width: 768px) {
   .navbar-content {
     position: relative; /* atur posisi navbar-content */

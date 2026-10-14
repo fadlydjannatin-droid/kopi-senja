@@ -26,6 +26,9 @@
           <a href="#contact">Contact</a>
         </div>
         <div class="cart">
+          <button class="theme-toggle" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+          </button>
           <a
             href="#"
             onclick="
@@ -141,6 +144,17 @@
       function tambahCart() {
         jumlahCart = jumlahCart + 1;
         document.getElementById("cartCount").textContent = jumlahCart;
+      }
+
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark");
+        let sedangGelap = document.body.classList.contains("dark");
+        localStorage.setItem("theme", sedangGelap ? "dark" : "light");
+      }
+
+      // Jalan sekali saat halaman dibuka: cek pilihan yang tersimpan di localStorage
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
       }
     </script>
   </body>
