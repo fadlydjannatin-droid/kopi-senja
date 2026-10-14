@@ -355,6 +355,7 @@ body.dark .menu-item {
   .about {
     padding: 2rem 1.5rem; /* atur padding elemen about */
     flex-direction: column; /* atur arah elemen about */
+    align-items: center; /* atur posisi horizontal elemen about */
     text-align: center; /* atur posisi teks elemen about */
   }
 
