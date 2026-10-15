@@ -321,6 +321,17 @@ body.dark .menu-item {
   background-color: #2c221e; /* atur warna latar belakang menu-item saat mode gelap */
 }
 
+.add-btn {
+  margin-top: 0.5rem; /* atur jarak atas tombol add-btn */
+  padding: 0.6rem 1.2rem; /* atur padding tombol add-btn */
+  background-color: #c87d55; /* atur warna latar belakang tombol add-btn */
+  color: #fdfbf7; /* atur warna teks tombol add-btn */
+  border: none; /* atur border tombol add-btn */
+  border-radius: 8px; /* atur radius border tombol add-btn */
+  font-weight: bold; /* atur ketebalan teks tombol add-btn */
+  cursor: pointer; /* atur kursor saat hover tombol add-btn */
+}
+
 @media (max-width: 768px) {
   .navbar-content {
     position: relative; /* atur posisi navbar-content */

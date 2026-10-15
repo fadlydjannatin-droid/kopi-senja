@@ -29,21 +29,15 @@
           <button class="theme-toggle" onclick="toggleDarkMode()">
             <i class="fas fa-moon" id="themeIcon"></i>
           </button>
-          <a
-            href="#"
-            onclick="
-              tambahCart();
-              return false;
-            "
-          >
+          <button class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="#">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="cartCount">0</span>
           </a>
           <a href="#"><i class="fas fa-user"></i></a>
         </div>
-        <button class="hamburger" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
       </div>
     </nav>
 
@@ -79,32 +73,7 @@
     <!-- Menu Section -->
     <section class="menu" id="menu">
       <h2>Our Menu</h2>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <img src="kopi1.jpg" alt="Kopi Latte" />
-          <h3>Coffee Latte</h3>
-          <p>A smooth blend of espresso and steamed milk.</p>
-          <span class="price">$3.50</span>
-        </div>
-        <div class="menu-item">
-          <img src="kopi2.jpg" alt="Kopi Cappuccino" />
-          <h3>Cappuccino</h3>
-          <p>A rich and creamy coffee topped with frothy milk.</p>
-          <span class="price">$3.75</span>
-        </div>
-        <div class="menu-item">
-          <img src="kopi3.jpg" alt="Kopi Mocha" />
-          <h3>Coffee Mocha</h3>
-          <p>A delightful mix of chocolate and coffee flavors.</p>
-          <span class="price">$4.00</span>
-        </div>
-        <div class="menu-item">
-          <img src="kopi4.jpg" alt="Kopi Americano" />
-          <h3>Americano</h3>
-          <p>A classic coffee made with espresso and hot water.</p>
-          <span class="price">$2.50</span>
-        </div>
-      </div>
+      <div class="menu-grid" id="menuGrid"></div>
     </section>
 
     <!-- Contact Section -->
@@ -124,6 +93,7 @@
       </div>
       <p class="footer-copy">&copy; 2026 Kopi Senja. All rights reserved.</p>
     </footer>
+
     <script>
       function toggleMenu() {
         document.querySelector(".nav-links").classList.toggle("active");
@@ -140,11 +110,7 @@
           navLinks.classList.remove("active");
         }
       });
-      let jumlahCart = 0;
-      function tambahCart() {
-        jumlahCart = jumlahCart + 1;
-        document.getElementById("cartCount").textContent = jumlahCart;
-      }
+
       function updateThemeIcon() {
         let icon = document.getElementById("themeIcon");
         if (document.body.classList.contains("dark")) {
@@ -167,6 +133,76 @@
         document.body.classList.add("dark");
       }
       updateThemeIcon();
+
+      const products = [
+        {
+          id: 1,
+          name: "Coffee Latte",
+          desc: "A smooth blend of espresso and steamed milk.",
+          price: 3.5,
+          image: "kopi1.jpg",
+        },
+        {
+          id: 2,
+          name: "Cappuccino",
+          desc: "A rich and creamy coffee topped with frothy milk.",
+          price: 3.75,
+          image: "kopi2.jpg",
+        },
+        {
+          id: 3,
+          name: "Coffee Mocha",
+          desc: "A delightful mix of chocolate and coffee flavors.",
+          price: 4.0,
+          image: "kopi3.jpg",
+        },
+        {
+          id: 4,
+          name: "Americano",
+          desc: "A classic coffee made with espresso and hot water.",
+          price: 2.5,
+          image: "kopi4.jpg",
+        },
+      ];
+
+      function renderMenu() {
+        const grid = document.getElementById("menuGrid");
+        grid.innerHTML = "";
+        products.forEach(function (product) {
+          grid.innerHTML += `
+            <div class="menu-item">
+              <img src="${product.image}" alt="${product.name}" />
+              <h3>${product.name}</h3>
+              <p>${product.desc}</p>
+              <span class="price">$${product.price.toFixed(2)}</span>
+              <button class="add-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
+          `;
+        });
+      }
+
+      let cart = [];
+      function addToCart(id) {
+        let item = cart.find(function (c) {
+          return c.id === id;
+        });
+        if (item) {
+          item.qty = item.qty + 1;
+        } else {
+          cart.push({ id: id, qty: 1 }); // tambahkan item ke keranjang
+        }
+        updateCartCount();
+      }
+
+      function updateCartCount() {
+        let total = 0;
+        cart.forEach(function (c) {
+          total = total + c.qty;
+        });
+        document.getElementById("cartCount").innerText = total; // update jumlah item di keranjang
+      }
+
+      renderMenu();
     </script>
   </body>
 </html>
