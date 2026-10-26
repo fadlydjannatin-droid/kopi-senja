@@ -32,7 +32,13 @@
           <button class="hamburger" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
           </button>
-          <a href="#">
+          <a
+            href="#"
+            onclick="
+              toggleCart();
+              return false;
+            "
+          >
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="cartCount">0</span>
           </a>
@@ -94,7 +100,56 @@
       <p class="footer-copy">&copy; 2026 Kopi Senja. All rights reserved.</p>
     </footer>
 
+    <div class="cart-panel" id="cartPanel">
+      <h3>Your Cart</h3>
+      <div id="cartItems"></div>
+      <p class="cart-total">Total: $<span id="cartTotal">0.00</span></p>
+      <a
+        href="#"
+        onclick="
+          toggleCart();
+          return false;
+        "
+        >Close Cart</a
+      >
+    </div>
     <script>
+      function toggleCart() {
+        document.getElementById("cartPanel").classList.toggle("open");
+        renderCart();
+      }
+
+      function renderCart() {
+        const box = document.getElementById("cartItems");
+        box.innerHTML = "";
+
+        if (cart.length === 0) {
+          box.innerHTML = "<p>Your cart is empty.</p>";
+        }
+        let total = 0;
+        cart.forEach(function (c) {
+          const product = products.find(function (p) {
+            return p.id === c.id;
+          });
+          const subtotal = product.price * c.qty;
+          total = total + subtotal;
+          box.innerHTML += `
+          <div class="cart-row">
+            <span>${product.name}</span>
+            <div class="qty-controls">
+              <button onclick="changeQty(${c.id}, -1)">-</button>
+              <span>${c.qty}</span>
+              <button onclick="changeQty(${c.id}, 1)">+</button>
+            </div>
+            <span>$${subtotal.toFixed(2)}</span>
+            <button class="remove-btn" onclick="removeItem(${c.id})"><i class="fas fa-trash"></i>
+              </button>
+          </div>
+        `;
+        });
+        document.getElementById("cartTotal").innerText = total.toFixed(2);
+      }
+
       function toggleMenu() {
         document.querySelector(".nav-links").classList.toggle("active");
       }
@@ -181,7 +236,7 @@
         });
       }
 
-      let cart = [];
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
       function addToCart(id) {
         let item = cart.find(function (c) {
           return c.id === id;
@@ -194,15 +249,38 @@
         updateCartCount();
       }
 
+      function changeQty(id, change) {
+        let item = cart.find(function (c) {
+          return c.id === id;
+        });
+        item.qty = item.qty + change;
+
+        if (item.qty <= 0) {
+          removeItem(id);
+          return; // keluar dari fungsi jika item dihapus
+        }
+        updateCartCount();
+      }
+
+      function removeItem(id) {
+        cart = cart.filter(function (c) {
+          return c.id !== id;
+        });
+        updateCartCount();
+      }
+
       function updateCartCount() {
         let total = 0;
         cart.forEach(function (c) {
           total = total + c.qty;
         });
-        document.getElementById("cartCount").innerText = total; // update jumlah item di keranjang
+        document.getElementById("cartCount").innerText = total;
+        renderCart(); // update jumlah item di keranjang
+        localStorage.setItem("cart", JSON.stringify(cart)); // simpan keranjang ke localStorage
       }
 
       renderMenu();
+      updateCartCount(); // update jumlah item di keranjang saat halaman dimuat
     </script>
   </body>
 </html>

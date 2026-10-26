@@ -332,6 +332,60 @@ body.dark .menu-item {
   cursor: pointer; /* atur kursor saat hover tombol add-btn */
 }
 
+.cart-panel {
+  display: none; /* sembunyikan panel cart */
+  position: fixed; /* atur posisi panel cart */
+  top: 90px; /* atur posisi vertikal panel cart */
+  right: 1rem; /* atur posisi horizontal panel cart */
+  width: 280px; /* atur lebar panel cart */
+  background: white; /* atur warna latar belakang panel cart */
+  color: #2c221e; /* atur warna teks panel cart */
+  padding: 1rem; /* atur padding panel cart */
+  border-radius: 12px; /* atur radius border panel cart */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* atur bayangan panel cart */
+  z-index: 1100; /* atur urutan tumpukan panel cart */
+}
+
+.cart-panel.open {
+  display: block; /* tampilkan panel cart saat terbuka */
+}
+
+.cart-row {
+  display: flex; /* aktifkan flexbox */
+  justify-content: space-between; /* atur jarak antar elemen */
+  align-items: center; /* atur posisi vertikal elemen */
+  gap: 8px; /* atur jarak antar elemen */
+  margin: 0.5rem 0; /* atur jarak atas dan bawah cart-row */
+}
+
+.qty-controls {
+  display: flex; /* aktifkan flexbox */
+  align-items: center; /* atur posisi vertikal elemen */
+  gap: 6px; /* atur jarak antar elemen */
+}
+
+.qty-controls button {
+  width: 24px; /* atur lebar tombol qty-controls */
+  height: 24px; /* atur tinggi tombol qty-controls */
+  border: none; /* atur border tombol qty-controls */
+  border-radius: 50%; /* atur radius border tombol qty-controls */
+  background-color: #c87d55; /* atur warna latar belakang tombol qty-controls */
+  color: #fdfbf7; /* atur warna teks tombol qty-controls */
+  cursor: pointer; /* atur kursor saat hover tombol qty-controls */
+}
+
+.cart-total {
+  font-weight: bold; /* atur ketebalan teks cart-total */
+  margin-top: 1rem; /* atur jarak atas cart-total */
+}
+
+.remove-btn {
+  background: none; /* atur warna latar belakang tombol remove-btn */
+  border: none; /* atur border tombol remove-btn */
+  color: #c87d55; /* atur warna teks tombol remove-btn */
+  cursor: pointer; /* atur kursor saat hover tombol remove-btn */
+}
+
 @media (max-width: 768px) {
   .navbar-content {
     position: relative; /* atur posisi navbar-content */
