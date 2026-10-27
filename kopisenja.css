@@ -2,6 +2,14 @@ html {
   scroll-behavior: smooth; /* atur perilaku scroll */
 }
 
+body {
+  margin: 0;
+}
+
+body.dark {
+  bakckground-color: #1a1512; /* atur warna latar belakang saat mode gelap */
+}
+
 .navbar {
   position: fixed; /* atur posisi navbar */
   top: 0; /* atur posisi vertikal navbar */
@@ -416,6 +424,36 @@ body.dark .menu-item {
 .close-btn:hover {
   background-color: #c87d55; /* atur warna latar belakang tombol close-btn saat hover */
   color: #fdfbf7; /* atur warna teks tombol close-btn saat hover */
+}
+
+.filter-bar {
+  display: flex; /* aktifkan flexbox */
+  justify-content: center; /* atur posisi horizontal elemen */
+  gap: 0.75rem; /* atur jarak antar elemen */
+  margin-bottom: 2rem; /* atur jarak bawah filter-bar */
+}
+
+.filter-btn {
+  padding: 0.5rem 1.2rem; /* atur padding tombol filter-btn */
+  background: transparent; /* atur warna latar belakang tombol filter-btn */
+  color: #2c221e; /* atur warna teks tombol filter-btn */
+  border: 1px solid #c87d55; /* atur border tombol filter-btn */
+  border-radius: 20px; /* atur radius border tombol filter-btn */
+  cursor: pointer; /* atur kursor saat hover tombol filter-btn */
+  font-weight: bold; /* atur ketebalan teks tombol filter-btn */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* atur transisi efek hover */
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: #c87d55; /* atur warna latar belakang tombol filter-btn saat aktif atau hover */
+  color: #fdfbf7; /* atur warna teks tombol filter-btn saat aktif atau hover */
+}
+
+body.dark .filter-btn {
+  color: #fdfbf7; /* atur warna teks tombol filter-btn saat mode gelap */
 }
 
 @media (max-width: 768px) {

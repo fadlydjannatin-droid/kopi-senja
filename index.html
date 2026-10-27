@@ -80,6 +80,17 @@
     <!-- Menu Section -->
     <section class="menu" id="menu">
       <h2>Our Menu</h2>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterMenu('all', this)">
+          All
+        </button>
+        <button class="filter-btn" onclick="filterMenu('hot', this)">
+          Hot
+        </button>
+        <button class="filter-btn" onclick="filterMenu('cold', this)">
+          Cold
+        </button>
+      </div>
       <div class="menu-grid" id="menuGrid"></div>
     </section>
 
@@ -201,6 +212,7 @@
           desc: "A smooth blend of espresso and steamed milk.",
           price: 3.5,
           image: "kopi1.jpg",
+          category: "hot",
         },
         {
           id: 2,
@@ -208,6 +220,7 @@
           desc: "A rich and creamy coffee topped with frothy milk.",
           price: 3.75,
           image: "kopi2.jpg",
+          category: "hot",
         },
         {
           id: 3,
@@ -215,6 +228,7 @@
           desc: "A delightful mix of chocolate and coffee flavors.",
           price: 4.0,
           image: "kopi3.jpg",
+          category: "cold",
         },
         {
           id: 4,
@@ -222,13 +236,18 @@
           desc: "A classic coffee made with espresso and hot water.",
           price: 2.5,
           image: "kopi4.jpg",
+          category: "cold",
         },
       ];
 
-      function renderMenu() {
+      function renderMenu(category = "all") {
         const grid = document.getElementById("menuGrid");
         grid.innerHTML = "";
-        products.forEach(function (product) {
+
+        const list = products.filter(function (p) {
+          return category === "all" || p.category === category;
+        });
+        list.forEach(function (product) {
           grid.innerHTML += `
             <div class="menu-item">
               <img src="${product.image}" alt="${product.name}" />
@@ -239,6 +258,14 @@
             </div>
           `;
         });
+      }
+
+      function filterMenu(category, btn) {
+        document.querySelectorAll(".filter-btn").forEach(function (b) {
+          b.classList.remove("active");
+        });
+        btn.classList.add("active");
+        renderMenu(category);
       }
 
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
