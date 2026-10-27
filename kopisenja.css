@@ -386,6 +386,38 @@ body.dark .menu-item {
   cursor: pointer; /* atur kursor saat hover tombol remove-btn */
 }
 
+.checkout-btn {
+  width: 100%; /* atur lebar tombol checkout-btn */
+  margin-top: 0.5rem; /* atur jarak atas tombol checkout-btn */
+  padding: 0.7rem; /* atur padding tombol checkout-btn */
+  background-color: #25d366; /* atur warna latar belakang tombol checkout-btn */
+  color: #fdfbf7; /* atur warna teks tombol checkout-btn */
+  border: none; /* atur border tombol checkout-btn */
+  border-radius: 8px; /* atur radius border tombol checkout-btn */
+  font-weight: bold; /* atur ketebalan teks tombol checkout-btn */
+  cursor: pointer; /* atur kursor saat hover tombol checkout-btn */
+}
+
+.close-btn {
+  width: 100%; /* atur lebar tombol close-btn */
+  margin-top: 0.5rem; /* atur jarak atas tombol close-btn */
+  padding: 0.6rem; /* atur padding tombol close-btn */
+  background-color: transparent; /* atur warna latar belakang tombol close-btn */
+  color: #2c221e; /* atur warna teks tombol close-btn */
+  border: 1px solid #c87d55; /* atur border tombol close-btn */
+  border-radius: 8px; /* atur radius border tombol close-btn */
+  font-weight: bold; /* atur ketebalan teks tombol close-btn */
+  cursor: pointer; /* atur kursor saat hover tombol close-btn */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* atur transisi efek hover */
+}
+
+.close-btn:hover {
+  background-color: #c87d55; /* atur warna latar belakang tombol close-btn saat hover */
+  color: #fdfbf7; /* atur warna teks tombol close-btn saat hover */
+}
+
 @media (max-width: 768px) {
   .navbar-content {
     position: relative; /* atur posisi navbar-content */

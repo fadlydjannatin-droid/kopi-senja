@@ -34,6 +34,7 @@
           </button>
           <a
             href="#"
+            id="cartToggle"
             onclick="
               toggleCart();
               return false;
@@ -104,14 +105,10 @@
       <h3>Your Cart</h3>
       <div id="cartItems"></div>
       <p class="cart-total">Total: $<span id="cartTotal">0.00</span></p>
-      <a
-        href="#"
-        onclick="
-          toggleCart();
-          return false;
-        "
-        >Close Cart</a
-      >
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">
+        <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+      </button>
+      <button class="close-btn" onclick="toggleCart()">Close Cart</button>
     </div>
     <script>
       function toggleCart() {
@@ -155,14 +152,22 @@
       }
 
       document.addEventListener("click", function (event) {
-        let navLinks = document.querySelector(".nav-links");
-        let hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        const cartPanel = document.getElementById("cartPanel");
+        const cartToggle = document.getElementById("cartToggle");
+        const path = event.composedPath();
 
-        let klikDalamMenu = navLinks.contains(event.target);
-        let klikDiHamburger = hamburger.contains(event.target);
-
-        if (!klikDalamMenu && !klikDiHamburger) {
+        if (!path.includes(navLinks) && !path.includes(hamburger)) {
           navLinks.classList.remove("active");
+        }
+
+        if (
+          !path.includes(cartPanel) &&
+          !path.includes(cartToggle) &&
+          !event.target.closest(".add-btn")
+        ) {
+          cartPanel.classList.remove("open");
         }
       });
 
@@ -267,6 +272,29 @@
           return c.id !== id;
         });
         updateCartCount();
+      }
+
+      function checkoutWhatsApp() {
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          return;
+        }
+
+        let total = 0;
+        const lines = cart.map(function (c) {
+          const product = products.find(function (p) {
+            return p.id === c.id;
+          });
+          const subtotal = product.price * c.qty;
+          total += subtotal;
+          return `- ${product.name} x ${c.qty} = $${subtotal.toFixed(2)}`;
+        });
+
+        const message = `Hello, I would like to order:\n${lines.join("\n")}\n\nTotal: $${total.toFixed(2)}`;
+
+        const phoneNumber = "6285242186970"; // Ganti dengan nomor WhatsApp Anda
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank");
       }
 
       function updateCartCount() {
